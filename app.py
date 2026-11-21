@@ -40,13 +40,21 @@ def load_image(file_name: str) -> Optional[Image.Image]:
     return None
 
 
-def render_image_or_placeholder(file_name: str, caption: str = "", use_column_width: bool = True):
+def render_image_or_placeholder(
+    file_name: str,
+    caption: str = "",
+    use_column_width: bool = True,
+    width: Optional[int] = None,
+):
     """
     Muestra una imagen si está disponible, o un contenedor de respaldo estilizado.
     """
     img = load_image(file_name)
     if img:
-        st.image(img, caption=caption if caption else None, use_container_width=use_column_width)
+        if width is not None:
+            st.image(img, caption=caption if caption else None, width=width)
+        else:
+            st.image(img, caption=caption if caption else None, use_container_width=use_column_width)
     else:
         st.markdown(
             f"""
@@ -204,15 +212,16 @@ CUSTOM_CSS = """
 
     /* Banner informativo */
     .gac-banner {
-        background: linear-gradient(90deg, #1B4332 0%, #2D6A4F 100%);
+        background: linear-gradient(90deg, #0F2B3C 0%, #1E4258 100%);
         color: #FFFFFF;
-        padding: 1rem 1.4rem;
+        padding: 1.1rem 1.5rem;
         border-radius: 12px;
         margin-top: 1.2rem;
         display: flex;
         align-items: center;
-        gap: 0.8rem;
-        box-shadow: 0 4px 12px rgba(27, 67, 50, 0.15);
+        gap: 0.9rem;
+        border-left: 4px solid #38BDF8;
+        box-shadow: 0 4px 14px rgba(15, 43, 60, 0.15);
     }
 
     /* Placeholder visual para imágenes faltantes */
@@ -553,7 +562,7 @@ def view_servicios():
                 <div class="gac-card">
                     <h3 style="color: #1B4332; margin-top: 0; font-weight: 700;">Gestión de Residuos Sólidos No Peligrosos</h3>
                     <p class="gac-text">
-                        Identificamos las corrientes de residuos, los volúmenes y los costos actuales de manejo. Con esa información definimos dónde conviene intervenir para organizar la separación según los materiales y el ritmo de trabajo de la empresa.
+                        Identificamos las corrientes de residuos, los volúmenes y los costos actuales de manejo. Con esa información definimos dónde intervenir para organizar la separación según los materiales y el ritmo de trabajo de la empresa.
                     </p>
                     <div style="background-color: #F3FAF6; border-left: 3px solid #2D6A4F; padding: 0.8rem 1rem; border-radius: 6px; margin-top: 0.8rem;">
                         <strong style="color: #1B4332; font-size: 0.9rem;">📌 Valor Agregado Incluido:</strong>
@@ -652,7 +661,7 @@ def view_como_trabajamos():
                 <div class="gac-step-num">01</div>
                 <div class="gac-step-title">Entendemos la operación</div>
                 <p class="gac-text">
-                    Conversamos sobre lo que la empresa genera, cómo se mueve dentro de sus instalaciones y cuánto cuesta gestionarlo hoy. El alcance se diseña según los tipos de residuos, los volúmenes y la operación específica de cada cliente; no se traslada el mismo esquema de una empresa a otra.
+                    Conversamos sobre lo que la empresa genera, cómo se mueve dentro de sus instalaciones y cuánto cuesta gestionarlo hoy. El alcance se diseña según los tipos de residuos, los volúmenes y la operación específica de cada cliente.
                 </p>
             </div>
             """,
@@ -706,10 +715,10 @@ def view_como_trabajamos():
     st.markdown(
         """
         <div class="gac-banner">
-            <div style="font-size: 1.8rem;">💡</div>
+            <div style="font-size: 2rem;">💡</div>
             <div>
-                <strong style="font-size: 1rem; letter-spacing: 0.02em;">Principio de Personalización GAC:</strong>
-                <div style="font-size: 0.9rem; opacity: 0.95; margin-top: 2px;">
+                <strong style="font-size: 1.02rem; letter-spacing: 0.02em; color: #F0F9FF;">Principio de Personalización GAC:</strong>
+                <div style="font-size: 0.92rem; color: #E0F2FE; margin-top: 3px; line-height: 1.45;">
                     Cada diagnóstico parte de datos reales de su operación, evitando recetas genéricas y asegurando viabilidad económica y ambiental.
                 </div>
             </div>
@@ -774,7 +783,24 @@ def view_contactenos():
             unsafe_allow_html=True,
         )
 
-        render_image_or_placeholder("contactanos.webp", caption="Atención personalizada para el sector productivo e industrial.")
+        # Imagen al 40% del ancho con texto descriptivo al lado
+        st.markdown("<div style='height: 0.5rem;'></div>", unsafe_allow_html=True)
+        col_img, col_desc = st.columns([0.4, 0.6], gap="medium", vertical_alignment="center")
+        with col_img:
+            render_image_or_placeholder(
+                "contactanos.webp",
+                caption="",
+                use_column_width=True,
+            )
+        with col_desc:
+            st.markdown(
+                """
+                <div style="font-size: 0.95rem; color: #475569; font-weight: 500; line-height: 1.5;">
+                    Atención personalizada para el sector productivo e industrial.
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
 
     with col_form:
         st.markdown(
