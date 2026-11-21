@@ -1,22 +1,21 @@
 
-Crea un sitio web con Python y Streamlit para una empresa de medio ambiente basada en lo siguiente:
+Crea un sitio web para una empresa de medio ambiente basada en lo siguiente:
 
 1) Empresa
 	
 	1.1) Nombre de la empresa: Gestiones Ambientales del Caribe SAS (GAC SAS)
 
-	1.2) Sidebar en la izquierda con menú de opciones:
+	1.2) Sidebar en la izquierda con menú de opciones en fondo claro suave:
 	- Inicio - Quienes Somos - Servicios - Como trabajamos - Contactenos
 	
 	verifica que cada uno de los enlaces funcione correctamente.
 	
 	1.3) Paleta de colores de tipo ambiental
-	- P
 	- Tipografía legible, jerarquía clara y suficiente espacio entre secciones pero que no sea tan larga la página hacia abajo.
 	- Estilo profesional, limpio y sin exceso de efectos.
+	- Que tenga l aopción modo oscuro para activar/desactivar
 	
 2) Detalles de Menús del Sidebar
-
 	Inicio (descripción + imagen)
 	
 	Imagén
@@ -64,4 +63,4 @@ Crea un sitio web con Python y Streamlit para una empresa de medio ambiente basa
 		+573016226317
 		gac-sas@miempresa.co
 	
-3) EN la carpeta "./resources/static" hay algunas imagénes de ejemplo para trabajar con ellas y el logo.
+3) En la carpeta "./resources/static" hay algunas imagénes de ejemplo para trabajar con ellas y el logo.
