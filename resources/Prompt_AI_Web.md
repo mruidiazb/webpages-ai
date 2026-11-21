@@ -64,3 +64,4 @@ Crea un sitio web para una empresa de medio ambiente basada en lo siguiente:
 		gac-sas@miempresa.co
 	
 3) En la carpeta "./resources/static" hay algunas imagénes de ejemplo para trabajar con ellas y el logo.
+Sino tienes imagenes puedes generarlas.
