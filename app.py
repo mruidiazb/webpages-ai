@@ -212,7 +212,7 @@ CUSTOM_CSS = """
 
     /* Banner informativo */
     .gac-banner {
-        background: linear-gradient(90deg, #0F2B3C 0%, #1E4258 100%);
+        background: linear-gradient(80deg, #1E4258 0%, #3E88B5 100%);
         color: #FFFFFF;
         padding: 1.1rem 1.5rem;
         border-radius: 12px;
