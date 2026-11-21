@@ -81,20 +81,20 @@ CUSTOM_CSS = """
         color: #1E293B;
     }
 
-    /* Fondo principal y espaciado compacto */
+    /* Fondo principal y espaciado que evita colisión con el menú superior */
     .stApp {
         background-color: #F8FAF9;
     }
     
     .block-container {
-        padding-top: 1.8rem !important;
-        padding-bottom: 2rem !important;
+        padding-top: 5.2rem !important;
+        padding-bottom: 2.5rem !important;
         max-width: 1200px;
     }
 
-    /* Ocultar barra superior por defecto si se desea */
+    /* Barra superior de Streamlit limpia */
     header[data-testid="stHeader"] {
-        background-color: rgba(248, 250, 249, 0.85);
+        background-color: rgba(248, 250, 249, 0.92);
         backdrop-filter: blur(8px);
     }
 
@@ -753,14 +753,14 @@ def view_contactenos():
             """
             <div class="gac-card gac-card-highlight">
                 <h4 style="color: #1B4332; margin-top: 0; font-size: 1.15rem; font-weight: 700;">
-                    Gestiones Ambientales del Caribe SAS (GAC SAS)
+                    Gestiones Ambientales del Caribe SAS
                 </h4>
                 <div style="margin-top: 1rem;">
                     <div style="margin-bottom: 0.85rem;">
                         <span style="font-size: 1.2rem; margin-right: 0.4rem;">📞</span>
                         <strong>Teléfono / WhatsApp:</strong><br/>
                         <a href="tel:+573016226317" style="color: #2D6A4F; font-weight: 600; text-decoration: none; margin-left: 1.8rem;">
-                            +57 301 622 6317
+                            +57 301 622 63 17
                         </a>
                     </div>
                     <div style="margin-bottom: 0.85rem;">
@@ -810,7 +810,7 @@ def view_contactenos():
                     Formulario de Contacto Corporativo
                 </div>
                 <div style="font-size: 0.82rem; color: #64748B; margin-bottom: 1rem;">
-                    Complete los siguientes campos y nuestro equipo técnico se pondrá en contacto a la brevedad.
+                    Complete los siguientes campos y nuestro equipo se pondrá en contacto.
                 </div>
             """,
             unsafe_allow_html=True,
